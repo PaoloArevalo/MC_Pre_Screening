@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09b0da6dbe73f243b209fe8bbf776cb, type: 3}
+  m_Name: GemConfigs
+  m_EditorClassIdentifier: 
+  listOfGems:
+  - gemtype: 0
+    GemSprites:
+    - {fileID: -929239842, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 906900260, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1420618390, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 787920716, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1588551979, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1408357915, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -618020284, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+  - gemtype: 1
+    GemSprites:
+    - {fileID: 2069858842, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 908808587, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1269766958, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1375835212, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1826263909, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -200541748, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1368634873, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+  - gemtype: 2
+    GemSprites:
+    - {fileID: 210428718, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1556582346, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 167959359, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1579871674, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -518349591, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1582004766, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1158080094, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+  - gemtype: 3
+    GemSprites:
+    - {fileID: 2072485075, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1901639852, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1782590776, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1179049064, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1166304066, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1770477920, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1748960151, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+  - gemtype: 4
+    GemSprites:
+    - {fileID: -191131221, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1557567224, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1705491463, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1546347890, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1464582802, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -722056732, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1390850124, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+  - gemtype: 5
+    GemSprites:
+    - {fileID: -649113893, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: 1965220364, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1136191233, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1004690160, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -34607924, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -1764172316, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
+    - {fileID: -560803670, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
