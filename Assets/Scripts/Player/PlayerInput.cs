@@ -44,6 +44,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d95a01a-dd08-4e89-9d72-dce78d346ea1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -79,6 +88,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a66c828-eb88-4e27-a2aa-0fdf5a668ad0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -89,6 +109,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Cannon = asset.FindActionMap("Cannon", throwIfNotFound: true);
         m_Cannon_Direction = m_Cannon.FindAction("Direction", throwIfNotFound: true);
         m_Cannon_Shoot = m_Cannon.FindAction("Shoot", throwIfNotFound: true);
+        m_Cannon_PauseGame = m_Cannon.FindAction("PauseGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -152,12 +173,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<ICannonActions> m_CannonActionsCallbackInterfaces = new List<ICannonActions>();
     private readonly InputAction m_Cannon_Direction;
     private readonly InputAction m_Cannon_Shoot;
+    private readonly InputAction m_Cannon_PauseGame;
     public struct CannonActions
     {
         private @PlayerInput m_Wrapper;
         public CannonActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Direction => m_Wrapper.m_Cannon_Direction;
         public InputAction @Shoot => m_Wrapper.m_Cannon_Shoot;
+        public InputAction @PauseGame => m_Wrapper.m_Cannon_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_Cannon; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -173,6 +196,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @PauseGame.started += instance.OnPauseGame;
+            @PauseGame.performed += instance.OnPauseGame;
+            @PauseGame.canceled += instance.OnPauseGame;
         }
 
         private void UnregisterCallbacks(ICannonActions instance)
@@ -183,6 +209,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @PauseGame.started -= instance.OnPauseGame;
+            @PauseGame.performed -= instance.OnPauseGame;
+            @PauseGame.canceled -= instance.OnPauseGame;
         }
 
         public void RemoveCallbacks(ICannonActions instance)
@@ -204,5 +233,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnDirection(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnPauseGame(InputAction.CallbackContext context);
     }
 }

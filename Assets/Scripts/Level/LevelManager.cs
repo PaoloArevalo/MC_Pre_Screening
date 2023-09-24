@@ -8,8 +8,31 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private HexGrid _hexGrid;
     [SerializeField] private int rowsToOccupy;
+    [SerializeField] private Transform preSetLevel;
 
     public void BuildLevel()
+    {
+        if (preSetLevel&&preSetLevel.childCount > 0)
+        {
+            AttachPreSetGems();
+        }
+        else
+        {
+            GenerateRows();
+        }
+
+        CollateRows();
+    }
+
+    private void CollateRows()
+    {
+        foreach (var rws in _hexGrid.getHexRows)
+        {
+            rws.CollateGems();
+        }
+    }
+
+    private void GenerateRows()
     {
         GemConfigs gemConfigs = GameManager.instance.getGemConfigs;
         for (int r = 0; r < rowsToOccupy; r++)
@@ -24,15 +47,17 @@ public class LevelManager : MonoBehaviour
                 h.GetComponent<HexPoint>().AssignGem(gm.GetComponent<Gem>());
             }
         }
-
-        CollateRows();
     }
 
-    private void CollateRows()
+    private void AttachPreSetGems()
     {
-        foreach (var rws in _hexGrid.getHexRows)
+        List<Gem> gms = new List<Gem>();
+        foreach (Transform tr in preSetLevel)
         {
-            rws.CollateGems();
+            gms.Add(tr.GetComponent<Gem>());
         }
+        
+        _hexGrid.SetPreSetGemInGrid(gms);
     }
+    
 }

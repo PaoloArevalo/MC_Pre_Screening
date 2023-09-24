@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gemType: 0
+  _gemID: 0
   _gemGFX: {fileID: 6921118840159149978}
   _direction: {x: 0, y: 0}
   _speed: 0
@@ -87,7 +88,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &6921118840159149977
 GameObject:

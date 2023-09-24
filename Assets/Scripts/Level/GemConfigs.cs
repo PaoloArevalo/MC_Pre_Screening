@@ -5,14 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GemConfigs")]
 public class GemConfigs : ScriptableObject
 {
-    [System.Serializable]
-    public class GemConfig
-    {
-        public GemTypes gemtype;
-        public List<Sprite> GemSprites;
-    }
-
     public List<GemConfig> listOfGems = new List<GemConfig>();
+}
+
+[System.Serializable]
+public class GemConfig
+{
+    public int gemID;
+    public GemTypes gemtype;
+    public List<Sprite> GemSprites;
 }
 
 public enum GemTypes

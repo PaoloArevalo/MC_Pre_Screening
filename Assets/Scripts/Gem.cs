@@ -42,7 +42,12 @@ public class Gem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Gem>()!=null && isProjectile)
+        if (other.GetComponent<Gem>()!=null && isProjectile )
+        {
+            GameManager.instance.getHexGrid.SetGemInGrid(this);
+            isProjectile = false;
+        }
+        else if(other.gameObject.layer == 6 && isProjectile)
         {
             GameManager.instance.getHexGrid.SetGemInGrid(this);
             isProjectile = false;

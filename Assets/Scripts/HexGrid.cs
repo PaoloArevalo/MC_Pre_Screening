@@ -12,6 +12,7 @@ public class HexGrid : MonoBehaviour
     {
         public int row = 0;
         public Transform parent;
+        public int gemCount = 0;
         public List<GameObject> points = new List<GameObject>();
         public List<CollatedRemainingGems> rowCollatedGems = new List<CollatedRemainingGems>();
 
@@ -26,6 +27,7 @@ public class HexGrid : MonoBehaviour
         }
         private void CountGem(Gem gm)
         {
+            gemCount++;
             if (rowCollatedGems.Count <= 0)
             {
                 CollatedRemainingGems cl = new CollatedRemainingGems();
@@ -61,6 +63,7 @@ public class HexGrid : MonoBehaviour
     [SerializeField] private int column;
     [SerializeField] private int cellSize;
     [SerializeField] private GameObject hexPoint;
+    [SerializeField] private float ceilingOffset = 0;
 
     public List<HexRow> getHexRows => hexRows;
     
@@ -118,7 +121,7 @@ public class HexGrid : MonoBehaviour
                 GameObject point = Instantiate(hexPoint,
                     new Vector3((hexOrigin.x + (c * cellSize))+ xOffset, hexOrigin.y - (r * (cellSize-.135f))), quaternion.identity,
                     hexRows[r].parent);
-                point.name = point.name + (c + 1).ToString();
+                point.name = "HexPoint"+"R"+(r+1).ToString() + "C"+(c + 1).ToString();
                 hexRows[r].points.Add(point);
                 
                 if (c > 0)
@@ -154,6 +157,17 @@ public class HexGrid : MonoBehaviour
         MatchManager.Instance.StartChecking(closestPoint);
     }
 
+    public void SetPreSetGemInGrid(List<Gem> gms)
+    {
+        foreach (Gem gm in gms)
+        {
+            HexPoint closestPoint = GetClosestAvailableHexPoint(gm);
+            gm.transform.parent = closestPoint.transform;
+            gm.transform.position = closestPoint.transform.position;
+            closestPoint.AssignGem(gm);
+        }
+    }
+    
     private HexPoint GetClosestAvailableHexPoint(Gem gm)
     {
         GameObject pointToGo = null;
@@ -177,13 +191,40 @@ public class HexGrid : MonoBehaviour
             }
         }
 
+        if (pointToGo == null)
+        {
+            hRowToCheck = hexRows[hRowToCheck.row++];
+            foreach (var p in hRowToCheck.points)
+            {
+                if (!p.GetComponent<HexPoint>().IsOccupied())
+                {
+                    if (pointToGo == null)
+                        pointToGo = p;
+                    else
+                    {
+                        if (Vector2.Distance(gm.transform.position,
+                                pointToGo.transform.position) >
+                            Vector2.Distance(gm.transform.position, p.transform.position))
+                        {
+                            pointToGo = p;
+                        }
+                    }
+                }
+            }
+        }  
+            
         return pointToGo.GetComponent<HexPoint>();
+
     }
     public int ConverToRow(float yPosition)
     {
-        //print($"Divide {(hexOrigin.y-yPosition) / (cellSize - .135f)} Returns {Mathf.RoundToInt(((hexOrigin.y-yPosition) / (cellSize - .135f)))}");
-        return Mathf.RoundToInt(((hexOrigin.y-yPosition) / (cellSize - .135f)));
+        int returnRow = Mathf.RoundToInt((((hexOrigin.y+ceilingOffset) - yPosition) / (cellSize - .135f)));
+        return returnRow;
     }
 
+    public void OffsetYOrigin()
+    {
+        ceilingOffset -= 1f;
+    }
     
 }

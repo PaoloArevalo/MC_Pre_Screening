@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GemConfigs
   m_EditorClassIdentifier: 
   listOfGems:
-  - gemtype: 0
+  - gemID: 0
+    gemtype: 0
     GemSprites:
     - {fileID: -929239842, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 906900260, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
@@ -22,7 +23,8 @@ MonoBehaviour:
     - {fileID: -1588551979, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 1408357915, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: -618020284, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
-  - gemtype: 1
+  - gemID: 1
+    gemtype: 1
     GemSprites:
     - {fileID: 2069858842, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 908808587, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
@@ -31,7 +33,8 @@ MonoBehaviour:
     - {fileID: 1826263909, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: -200541748, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 1368634873, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
-  - gemtype: 2
+  - gemID: 2
+    gemtype: 2
     GemSprites:
     - {fileID: 210428718, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 1556582346, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
@@ -40,7 +43,8 @@ MonoBehaviour:
     - {fileID: -518349591, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 1582004766, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 1158080094, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
-  - gemtype: 3
+  - gemID: 3
+    gemtype: 3
     GemSprites:
     - {fileID: 2072485075, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: -1901639852, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
@@ -49,7 +53,8 @@ MonoBehaviour:
     - {fileID: 1166304066, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: -1770477920, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: -1748960151, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
-  - gemtype: 4
+  - gemID: 4
+    gemtype: 4
     GemSprites:
     - {fileID: -191131221, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: -1557567224, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
@@ -58,7 +63,8 @@ MonoBehaviour:
     - {fileID: 1464582802, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: -722056732, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 1390850124, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
-  - gemtype: 5
+  - gemID: 5
+    gemtype: 5
     GemSprites:
     - {fileID: -649113893, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}
     - {fileID: 1965220364, guid: 137501d1b513f884b840b03f0bdef9ea, type: 3}

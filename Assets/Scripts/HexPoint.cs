@@ -18,7 +18,7 @@ public class HexPoint : MonoBehaviour
         point.GetComponent<HexPoint>().LinkSelf(this.gameObject);
     }
 
-    public void LinkSelf(GameObject point)
+    private void LinkSelf(GameObject point)
     {
         if (!IsLinked(point))
             linkedPoints.Add(point);

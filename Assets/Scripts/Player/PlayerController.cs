@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = new PlayerInput();
         playerInput.Cannon.Shoot.performed += ShootGem;
+        playerInput.Cannon.PauseGame.performed += PauseGame;
     }
 
     private void OnEnable()
@@ -34,13 +35,30 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 shtrDir = ((Camera.main.ScreenToWorldPoint(playerInput.Cannon.Direction.ReadValue<Vector2>()) -
-                           this.transform.position)*100).normalized;
-        position = new Vector2(shtrDir.x, Mathf.Clamp(shtrDir.y, .2f, 1f));
+                           this.transform.position)).normalized;
+
+        transform.right = shtrDir;
+        transform.eulerAngles = new Vector3(0, 0, Mathf.Clamp(transform.eulerAngles.z, 20, 160));
     }
 
     private void ShootGem(InputAction.CallbackContext context)
     {
-        GameManager.instance.LaunchGem(position);
+        if (GameManager.instance.GameOnGoing && !GameManager.instance.GameIsPause)
+            GameManager.instance.LaunchGem(transform.right);
+    }
+
+    private void PauseGame(InputAction.CallbackContext context)
+    {
+        if (!GameManager.instance.GameIsPause)
+        {
+            GameManager.instance.GameIsPause = true;
+            GameUI.Instance.ShouldPause(true);
+        }
+        else
+        {
+            GameUI.Instance.ShouldPause(false);
+            GameManager.instance.GameIsPause = false;
+        }
     }
 
 }
